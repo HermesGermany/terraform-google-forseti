@@ -33,7 +33,7 @@ resource "google_storage_bucket" "server_config" {
   project                     = var.project_id
   storage_class               = var.storage_bucket_class
   force_destroy               = true
-  uniform_bucket_level_access = false
+  uniform_bucket_level_access = true
   labels                      = var.gcs_labels
 
   depends_on = [null_resource.services-dependency]
@@ -46,7 +46,7 @@ resource "google_storage_bucket" "cai_export" {
   project                     = var.project_id
   storage_class               = var.storage_bucket_class
   force_destroy               = true
-  uniform_bucket_level_access = false
+  uniform_bucket_level_access = true
   labels                      = var.gcs_labels
 
   lifecycle_rule {
