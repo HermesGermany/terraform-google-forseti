@@ -88,7 +88,7 @@ resource "google_storage_bucket" "main" {
   location                    = var.storage_bucket_location
   project                     = var.project_id
   force_destroy               = true
-  uniform_bucket_level_access = false
+  uniform_bucket_level_access = true
 }
 
 resource "google_storage_bucket_iam_member" "service_account_read" {
