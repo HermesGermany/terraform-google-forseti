@@ -199,7 +199,10 @@ resource "google_compute_firewall" "forseti-server-ssh-external" {
   target_service_accounts = [var.server_iam_module.forseti-server-service-account]
   source_ranges           = var.server_ssh_allow_ranges
   priority                = "100"
-  enable_logging          = var.firewall_logging
+
+  log_config {
+    metadata = "EXCLUDE_ALL_METADATA"
+  }
 
   allow {
     protocol = "tcp"
@@ -217,7 +220,10 @@ resource "google_compute_firewall" "forseti-server-ssh-iap" {
   target_service_accounts = [var.server_iam_module.forseti-server-service-account]
   source_ranges           = ["35.235.240.0/20"]
   priority                = "100"
-  enable_logging          = var.firewall_logging
+
+  log_config {
+    metadata = "EXCLUDE_ALL_METADATA"
+  }
 
   allow {
     protocol = "tcp"
@@ -236,7 +242,10 @@ resource "google_compute_firewall" "forseti-server-allow-grpc" {
   source_ranges           = var.server_grpc_allow_ranges
   source_service_accounts = var.client_iam_module.forseti-client-service-account != null ? [var.client_iam_module.forseti-client-service-account] : null
   priority                = "100"
-  enable_logging          = var.firewall_logging
+
+  log_config {
+    metadata = "EXCLUDE_ALL_METADATA"
+  }
 
   allow {
     protocol = "tcp"
