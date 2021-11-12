@@ -15,6 +15,9 @@ if [ $INTERNET_CONNECTION == "offline" ]; then
   echo "Forseti Startup - A connection to the internet was not detected."
 fi
 
+# Set timezone
+timedatectl set-timezone Europe/Berlin
+
 # forseti_conf_server digest: ${forseti_conf_server_checksum}
 # This digest is included in the startup script to rebuild the Forseti server VM
 # whenever the server configuration changes.
