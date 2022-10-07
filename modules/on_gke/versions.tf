@@ -18,8 +18,8 @@
 terraform {
   required_version = ">= 0.12"
   required_providers {
-    google      = "~> 3.52"
-    google-beta = "~> 3.52"
+    google      = "~> 4.39"
+    google-beta = "~> 4.39"
     helm        = "~> 0.10"
     kubernetes  = "~> 1.10"
     null        = "~> 2.1"
